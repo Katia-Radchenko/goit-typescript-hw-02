@@ -4,11 +4,14 @@
 */
 
 
-function getPromise<T extends string | number>(): Promise<T> {
+function getPromise<
+    T extends (string | number)[]
+>(): Promise<T> {
     return new Promise((resolve) => {
-        resolve("Text" as T);
+        resolve(["Text", 21] as T);
     });
 }
+
 
 getPromise().then((data) => {
     console.log(data);
